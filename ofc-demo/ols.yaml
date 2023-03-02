@@ -2,39 +2,39 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: sdn-app
-  name: sdn-svc
+    app: ols-controller-app
+  name: ols-controller-svc
 spec:
   ports:
-  - name: cli-sdn
+  - name: cli-ols
     nodePort: 30101
     port: 8101
     targetPort: 8101
-  - name: gui-sdn
+  - name: gui-ols
     nodePort: 30181
     port: 8181
   selector:
-    app: sdn-app
+    app: ols-controller-app
   type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: sdn-app
-  name: sdn
+    app: ols-controller-app
+  name: ols-controller
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sdn-app
+      app: ols-controller-app
   template:
     metadata:
       labels:
-        app: sdn-app
+        app: ols-controller-app
     spec:
       containers:
-      - image: tqhuy812/h-sdnc
-        name: h-sdnc
+      - image: tqhuy812/ols-controller
+        name: ols-controller
         stdin: true
         tty: true
