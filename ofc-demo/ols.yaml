@@ -1,28 +1,28 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ols-controller-svc
   labels:
     app: ols-controller-app
+  name: ols-controller-svc
 spec:
-  type: NodePort
   ports:
   - name: cli-ols
+    nodePort: 30101
     port: 8101
     targetPort: 8101
-    nodePort: 30101
   - name: gui-ols
-    port: 8181
     nodePort: 30181
+    port: 8181
   selector:
     app: ols-controller-app
+  type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ols-controller
   labels:
     app: ols-controller-app
+  name: ols-controller
 spec:
   replicas: 1
   selector:
@@ -34,7 +34,7 @@ spec:
         app: ols-controller-app
     spec:
       containers:
-        - name: ols-controller
-          image: tqhuy812/ols-controller
-          stdin: true
-          tty: true
+      - image: tqhuy812/ols-controller
+        name: ols-controller
+        stdin: true
+        tty: true
