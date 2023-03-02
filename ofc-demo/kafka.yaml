@@ -2,39 +2,36 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: sdn-app
-  name: sdn-svc
+    app: kafka-app
+  name: kafka-svc
 spec:
   ports:
-  - name: cli-sdn
-    nodePort: 30101
-    port: 8101
-    targetPort: 8101
-  - name: gui-sdn
-    nodePort: 30181
-    port: 8181
+  - name: kafka-port
+    port: 9092
+    protocol: TCP
+    targetPort: 9092
   selector:
-    app: sdn-app
+    app: kafka-app
   type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: sdn-app
-  name: sdn
+    app: kafka-app
+  name: kafka
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sdn-app
+      app: kafka-app
   template:
     metadata:
       labels:
-        app: sdn-app
+        app: kafka-app
     spec:
       containers:
-      - image: tqhuy812/t-sdnc
-        name: t-sdnc
+      - image: bashj79/kafka-kraft
+        name: kafka-broker
         stdin: true
         tty: true
