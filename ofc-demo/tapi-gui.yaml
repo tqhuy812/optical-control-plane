@@ -1,1 +1,37 @@
-
+apiVersion: v1
+kind: Service
+metadata:
+  name: tapi-ui-svc
+  labels:
+    app: tapi-ui-app
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: tapi-ui-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tapi-ui
+  labels:
+    app: tapi-ui-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tapi-ui-app
+  template:
+    metadata:
+      labels:
+        app: tapi-ui-app
+    spec:
+      containers:
+        - name: tapi-ui
+          image: tqhuy812/tapi-ui
+          stdin: true
+          tty: true
