@@ -57,7 +57,7 @@ metadata:
   namespace: kafka-kraft
 spec:
   serviceName: kafka-svc
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: kafka-app
