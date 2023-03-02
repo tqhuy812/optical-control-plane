@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    deployment: sdn-controller
+  name: tsdnc-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      sdn-controller: tsdnc
+  template:
+    metadata:
+      labels:
+        sdn-controller: tsdnc
+    spec:
+      containers:
+      - env:
+        - name: TSDNC_APPS
+        image: ofcdemo/tsdnc:2.5
+        name: tsdnc-demo
+        stdin: true
+        tty: true
