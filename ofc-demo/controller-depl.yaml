@@ -26,5 +26,5 @@ spec:
             [
               "sh",
               "-c",
-              '"until nslookup kafka-svc.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for kafka; sleep 2; done"',
+              '"sleep 10"',
             ]
