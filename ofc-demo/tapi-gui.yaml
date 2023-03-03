@@ -31,7 +31,7 @@ spec:
         app: tapi-ui-app
     spec:
       containers:
-      - image: tqhuy812/tapi-ui
+      - image: nginx
         name: tapi-ui
         stdin: true
         tty: true
