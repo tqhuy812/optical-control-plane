@@ -19,12 +19,3 @@ spec:
           name: t-sdnc
           stdin: true
           tty: true
-      initContainers:
-        - name: init-kafka
-          image: busybox:latest
-          command:
-            [
-              "sh",
-              "-c",
-              '"sleep 10"',
-            ]
