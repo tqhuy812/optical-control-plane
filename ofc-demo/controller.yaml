@@ -33,6 +33,10 @@ spec:
       labels:
         app: sdn-app
     spec:
+    initContainers:
+      - name: init-kafka
+        image: busybox:latest
+        command: ['sh', '-c', '"until nslookup kafka-svc.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for myservice; sleep 2; done"']
       containers:
       - image: tqhuy812/t-sdnc
         name: t-sdnc
