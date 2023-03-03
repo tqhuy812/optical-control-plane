@@ -15,7 +15,7 @@ spec:
         app: sdn-app
     spec:
       containers:
-        - image: tqhuy812/nssr-controller-ofc2023
-          name: t-sdnc
-          stdin: true
-          tty: true
+      - image: tqhuy812/hsdnc-ofc2023
+        name: h-sdnc
+        stdin: true
+        tty: true
