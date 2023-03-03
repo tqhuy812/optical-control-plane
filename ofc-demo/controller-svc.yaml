@@ -15,4 +15,4 @@ spec:
     port: 8181
   selector:
     app: sdn-app
-  type: LoadBalancer
+  type: NodePort
