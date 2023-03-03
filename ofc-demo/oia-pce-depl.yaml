@@ -15,7 +15,7 @@ spec:
         app: oia-pce-app
     spec:
       containers:
-      - image: tqhuy812/oia-pce
+      - image: tqhuy812/drpy
         name: oia-pce
         stdin: true
         tty: true
