@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: ols-controller-app
-  name: ols-controller
+    app: oia-pce-app
+  name: oia-pce
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ols-controller-app
+      app: oia-pce-app
   template:
     metadata:
       labels:
-        app: ols-controller-app
+        app: oia-pce-app
     spec:
       containers:
-      - image: nginx
-        name: ols-controller
+      - image: tqhuy812/drpy
+        name: oia-pce
         stdin: true
         tty: true
