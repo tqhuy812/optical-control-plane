@@ -15,7 +15,7 @@ spec:
         app: ols-controller-app
     spec:
       containers:
-      - image: ols-ofc2023:1.0.0
+      - image: tqhuy812/ols-ofc2023:1.0.0
         name: ols-controller
         stdin: true
         tty: true
