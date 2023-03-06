@@ -16,8 +16,6 @@ spec:
     spec:
       containers:
       - image: nginx
-        name: tapi-ui
+        name: docker pull hthieu/opticalgui:v4.0.0
         stdin: true
         tty: true
-        ports:
-        - containerPort: 80
