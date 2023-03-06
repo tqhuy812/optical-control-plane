@@ -15,7 +15,7 @@ spec:
         app: kafka-app
     spec:
       containers:
-      - image: qphamvan/kafka
+      - image: bashj79/kafka-kraft
         name: kafka-broker
         stdin: true
         tty: true
