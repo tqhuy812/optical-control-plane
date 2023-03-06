@@ -15,7 +15,7 @@ spec:
         app: tapi-ui-app
     spec:
       containers:
-      - image: nginx
-        name: docker pull hthieu/opticalgui:v4.0.0
+      - image: hthieu/opticalgui:v4.0.0
+        name: tapi-ui-app
         stdin: true
         tty: true
