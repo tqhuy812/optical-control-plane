@@ -19,3 +19,14 @@ spec:
         name: tapi-ui-app
         stdin: true
         tty: true
+        env:
+        - name: MONGODB_IP
+          value: gui-db-svc
+        - name: SDNC_KAFKA_BROKER_IP 
+          value: kafka-svc
+        - name: SDNC_KAFKA_BROKER_PORT
+          value: "9092"
+
+
+
+#docker run -dit -p 8000:8000 -p 8001:8001 --name=gui -e MONGODB_IP=10.5.3.104 hthieu/opticalgui:v4.0.0

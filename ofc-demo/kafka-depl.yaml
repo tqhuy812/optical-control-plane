@@ -15,7 +15,15 @@ spec:
         app: kafka-app
     spec:
       containers:
-      - image: bashj79/kafka-kraft
+      - image: qphamvan/kafka:v2.4
         name: kafka-broker
         stdin: true
         tty: true
+        env:
+        - name: ADVERTISED_HOST
+          value: "192.168.49.2"
+        - name: ADVERTISED_PORT
+          value: "30992"
+
+
+#docker run -dit --network=test-sdnc -e ADVERTISED_HOST=10.5.3.104 -e ADVERTISED_PORT=9092 --ip 172.18.0.2 -p 9092:9092 --name nbi-kafka qphamvan/kafka:v2.4

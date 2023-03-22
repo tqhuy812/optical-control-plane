@@ -6,13 +6,14 @@ metadata:
   name: sdn-svc
 spec:
   ports:
-  - name: cli-sdn
-    nodePort: 30101
+  - name: cli
+    nodePort: 31002
     port: 8101
     targetPort: 8101
-  - name: gui-sdn
-    nodePort: 30181
+  - name: rest
+    nodePort: 30002
     port: 8181
+    targetPort: 8181
   selector:
     app: sdn-app
   type: NodePort

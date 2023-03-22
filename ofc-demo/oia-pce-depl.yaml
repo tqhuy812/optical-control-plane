@@ -19,3 +19,6 @@ spec:
         name: oia-pce
         stdin: true
         tty: true
+        env:
+        - name: PCE_IP
+          value: "0.0.0.0"

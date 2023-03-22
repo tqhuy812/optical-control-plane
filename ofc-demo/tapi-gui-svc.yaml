@@ -2,14 +2,18 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: tapi-ui-app
+    app: tapi-ui-svc
   name: tapi-ui-svc
 spec:
   ports:
-  - name: http-port
-    port: 40000
-    protocol: TCP
+  - name: socket-connection
+    port: 8000
+    targetPort: 8000
+    nodePort: 30800
+  - name: http-gui
+    port: 8001
     targetPort: 8001
+    nodePort: 30801
   selector:
     app: tapi-ui-app
   type: NodePort

@@ -8,8 +8,8 @@ spec:
   ports:
   - name: drpy-port
     port: 40000
-    protocol: TCP
     targetPort: 40000
+    nodePort: 30400
   selector:
     app: oia-pce-app
   type: NodePort
