@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  labels:
+    app: kafka-app
+  name: kafka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-app
+  template:
+    metadata:
+      labels:
+        app: kafka-app
+    spec:
+      containers:
+      - image: qphamvan/kafka:v2.4
+        name: kafka-broker
+        stdin: true
+        tty: true
+        env:
+        - name: ADVERTISED_HOST
+          value: "192.168.49.2"
+        - name: ADVERTISED_PORT
+          value: "30992"
+
+
+#docker run -dit --network=test-sdnc -e ADVERTISED_HOST=10.5.3.104 -e ADVERTISED_PORT=9092 --ip 172.18.0.2 -p 9092:9092 --name nbi-kafka qphamvan/kafka:v2.4

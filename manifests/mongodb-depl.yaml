@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  labels:
+    gui: mongodb
+  name: gui-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      gui: mongodb
+  template:
+    metadata:
+      labels:
+        gui: mongodb
+    spec:
+      containers:
+      - image: mongo
+        name: gui-db
+        stdin: true
+        tty: true
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: "admin"
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: "admin123"
+        volumeMounts:
+        - name: db-volume
+          mountPath: /data/db
+      volumes:
+      - name: db-volume
+        hostPath:
+          path: /opt/mongodata
+
+
+
+#docker run --restart=always --name mongo -v /opt/mongodata:/data/db -dit -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=admin123 mongo

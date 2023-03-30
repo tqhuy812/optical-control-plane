@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    gui: mongodb
+  name: gui-db-svc
+spec:
+  ports:
+  - name: gui-db
+    nodePort: 30017
+    port: 27017
+    targetPort: 27017
+  selector:
+    gui: mongodb
+  type: NodePort
