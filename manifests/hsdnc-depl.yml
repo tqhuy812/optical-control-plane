@@ -17,7 +17,7 @@ spec:
         app: sdn-app
     spec:
       containers:
-      - image: tqhuy812/hsdnc-ofc2023:1.1
+      - image: tqhuy812/hsdnc-ofc2023:1.1.0
         name: h-sdnc
         stdin: true
         tty: true
