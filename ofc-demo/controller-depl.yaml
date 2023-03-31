@@ -30,7 +30,7 @@ spec:
           value: oia-pce-svc
         - name: DRPY_PORT
           value: '40000'
-        image: tqhuy812/hsdnc-ofc2023:1.1.0
-        name: h-sdnc
+        image: tqhuy812/nssr-controller-ofc2023:1.1
+        name: t-sdnc
         stdin: true
         tty: true
