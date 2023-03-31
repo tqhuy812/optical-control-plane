@@ -31,6 +31,6 @@ spec:
         - name: DRPY_PORT
           value: '40000'
         image: tqhuy812/hsdnc-ofc2023:1.1.0
-        name: t-sdnc
+        name: h-sdnc
         stdin: true
         tty: true
