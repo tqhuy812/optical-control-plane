@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: oia-pce-app
+  name: oia-pce-svc
+spec:
+  ports:
+  - name: drpy-port
+    nodePort: 30400
+    port: 40000
+    targetPort: 40000
+  selector:
+    app: oia-pce-app
+  type: NodePort
